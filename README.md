@@ -20,9 +20,9 @@ The number of vehicles inside map boundaries is shown on a panel upper left corn
 
 ## Examples
 <img src="screenshots/Capture1.PNG" alt="loaded desktop" style="height:100px;"/>
-<img src="screenshots/Capture1.PNG" alt="zoomed desktop" style="height:100px;"/>
-<img src="screenshots/IMG_0499.jpeg" alt="loaded mobile" style="height:100px;"/>
-<img src="screenshots/IMG_0500.jpeg" alt="zoomed mobile" style="height:100px;"/>
+<img src="screenshots/Capture2.PNG" alt="zoomed desktop" style="height:100px;"/>
+<img src="screenshots/IMG_0499.png" alt="loaded mobile" style="height:100px;"/>
+<img src="screenshots/IMG_0500.png" alt="zoomed mobile" style="height:100px;"/>
 
 
 
