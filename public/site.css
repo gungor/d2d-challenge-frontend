@@ -8,7 +8,7 @@
   color: #ffffff;
   z-index: 1 !important;
   padding: 6px;
-  font: Arial;
+  font-family: Arial;
 }
 
 .mapContainer {
@@ -29,10 +29,10 @@
 }
 
 .marker-zoomed {
-  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='18' height='18'><circle cx='9' cy='9' r='9'  fill='rgb(255, 140, 0)' /></svg>");
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='18' height='18'><circle cx='8' cy='8' r='8'  fill='rgb(255, 140, 0)' /></svg>");
   background-size: cover;
-  width: 18px;
-  height: 18px;
+  width: 16px;
+  height: 16px;
   border-radius: 50%;
   cursor: pointer;
 }

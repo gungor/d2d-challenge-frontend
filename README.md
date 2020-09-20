@@ -36,8 +36,6 @@ Running the command below build Docker image file and runs in a comtainer.
 REACT_APP_SERVICE_URL environment variable provided to docker run command must be url of running backend service.  
 By default REACT_APP_SERVICE_URL = https://d2d-backend-gungor.herokuapp.com  
 
-* If your-backend-service-url contains 'localhost' or '127.0.0.1' replace it with 'host.docker.internal'
-
 ```bash
 cd d2d-challenge-frontend
 docker build -t d2d/frontend-gungor .
@@ -48,6 +46,7 @@ Application can be reached from http://localhost:3000
 
 ### Local
 ```bash
+cd d2d-challenge-frontend
 npm install
 ```
 * Windows
