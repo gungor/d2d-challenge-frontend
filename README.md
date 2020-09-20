@@ -5,10 +5,10 @@ This application shows registered vehicles locations and directions on the map.
 If last location of a vehicle is inside map boundaries but its distance to d2d center ( lat: 52.53, lng: 13.403) is more than 3.5 km, those are not shown.
 
 ## Technologies
-React 
-Mapbox
-turf
-npm
+* React 
+* Mapbox
+* turf
+* npm
 
 ## How it works
 When the application first loaded, map is centered at ( lat: 52.53, lng: 13.403) and zoom level is 10. 
@@ -19,9 +19,8 @@ If there is single location data of a vehicle it is shown as dot since there is 
 The number of vehicles inside map boundaries is shown on a panel upper left corner of screen.
 
 ## Examples
-
-
-
+<img src="screenshots/Capture1.PNG" alt="loaded desktop" style="height:100px;"/>
+<img src="https://github.com/gungor/d2d-challenge-frontend/blob/master/screenshots/Capture1.PNG?raw=true" alt="" style="height:100px;"/>
 
 
 
