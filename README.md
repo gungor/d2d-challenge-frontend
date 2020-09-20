@@ -20,7 +20,10 @@ The number of vehicles inside map boundaries is shown on a panel upper left corn
 
 ## Examples
 <img src="screenshots/Capture1.PNG" alt="loaded desktop" style="height:100px;"/>
-<img src="https://github.com/gungor/d2d-challenge-frontend/blob/master/screenshots/Capture1.PNG?raw=true" alt="" style="height:100px;"/>
+<img src="screenshots/Capture1.PNG" alt="zoomed desktop" style="height:100px;"/>
+<img src="screenshots/IMG_0499.jpeg" alt="loaded mobile" style="height:100px;"/>
+<img src="screenshots/IMG_0500.jpeg" alt="zoomed mobile" style="height:100px;"/>
+
 
 
 
