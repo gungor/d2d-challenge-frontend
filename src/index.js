@@ -1,11 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import mapboxgl from 'mapbox-gl';
+import * as turf from '@turf/turf';
+import { drawVehicles } from './vehicle.js'
 
 mapboxgl.accessToken = 'pk.eyJ1IjoibmVkZW5lbWUiLCJhIjoiY2tmNXhiYjJyMHI1ZzJxbnk0aWxkbHU2NyJ9.pJUZ9n_xkffXL_tcwsSGyQ';
 
 var markers = [];
-
 var serviceUrl = process.env.REACT_APP_SERVICE_URL;
 
 
@@ -15,11 +16,14 @@ class Application extends React.Component {
     this.state = {
       lng: 13.403,
       lat: 52.53,
-      zoom: 10
+      zoom: 10,
+	  vehicles: 0
     };
   }
 
   componentDidMount() {
+	var that = this;  
+	  
     const map = new mapboxgl.Map({
       container: this.mapContainer,
       style: 'mapbox://styles/mapbox/streets-v11',
@@ -27,78 +31,52 @@ class Application extends React.Component {
       zoom: this.state.zoom
     });
 	
-	// refers to drag
+	
+    map.on('move', () => {
+      this.setState({
+        lng: map.getCenter().lng.toFixed(4),
+        lat: map.getCenter().lat.toFixed(4),
+        zoom: map.getZoom().toFixed(2)
+      });
+    });
+	
+	
 	map.on('moveend', () => {
-      console.log("move ended");
+	  
     });
 	
 	map.on('load', function () {
-		console.log('onload worked');
 		
-		window.setInterval(function () {
+		setInterval(function () {
+			
+			let bounds = map.getBounds();
             
-			fetch( serviceUrl+'/vehicles/54/15/52/12')
+			fetch( serviceUrl+'/vehicles/'+bounds._ne.lat+'/'+bounds._ne.lng+'/'+bounds._sw.lat+'/'+bounds._sw.lng)
+			//fetch( 'http://localhost:8080/vehicles/'+bounds._ne.lat+'/'+bounds._ne.lng+'/'+bounds._sw.lat+'/'+bounds._sw.lng)
 			.then(res => res.json())
 			.then((data) => {
-				
-			
-				
-				if (markers !== null) {
-					for (var i = markers.length - 1; i > -1; i--) {
-					  markers[i].remove();
-					}
-					markers = [];
-				}
-				
-				console.log(data.vehicleList);
-				let vehicles = data.vehicleList;
-				
-				
-				let features = [];
-				
-				for(var i = 0; i < vehicles.length; i++) {
-					var vehicle = vehicles[i];
-					
-					features.push(  
-						{
-							'type': 'Feature',
-							'geometry': {
-								'type': 'Point',
-								'coordinates': [vehicle.locations[0].lng , vehicle.locations[0].lat]
-							}
-						}
-					);
-				}
-				
-				features.forEach(function(marker) {
-
-				    // create a HTML element for each feature
-				    var el = document.createElement('div');
-				    el.className = 'marker';
-
-				    console.log(marker.geometry.coordinates);
-				    // make a marker for each feature and add to the map
-				    marker = new mapboxgl.Marker(el)
-						.setLngLat(marker.geometry.coordinates)
-						.addTo(map);
-					markers.push(marker);
+				that.setState({
+					lng: map.getCenter().lng.toFixed(4),
+					lat: map.getCenter().lat.toFixed(4),
+					zoom: map.getZoom().toFixed(2),
+					vehicles: data.vehicleList.length
 				});
 				
-				//map.triggerRepaint();
-				
+				drawVehicles(map,mapboxgl,document,markers,data.vehicleList, turf);
 			})
 			.catch(console.log)
 			
-         }, 200);
-		
-	        
+          }, 500);
     });
-	
   }
 
   render() {
     return (
       <div>
+	    <div className='sidebarStyle'>
+			<div>Zoom     : {this.state.zoom}</div>
+			<div>Vehicles : {this.state.vehicles}</div>
+		</div>
         <div ref={el => this.mapContainer = el} className='mapContainer' />
       </div>
     )
