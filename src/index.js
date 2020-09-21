@@ -51,8 +51,8 @@ class Application extends React.Component {
 			
 			let bounds = map.getBounds();
             
-			fetch( serviceUrl+'/vehicles/'+bounds._ne.lat+'/'+bounds._ne.lng+'/'+bounds._sw.lat+'/'+bounds._sw.lng)
-			//fetch( 'http://localhost:8080/vehicles/'+bounds._ne.lat+'/'+bounds._ne.lng+'/'+bounds._sw.lat+'/'+bounds._sw.lng)
+			//fetch( serviceUrl+'/vehicles/'+bounds._ne.lat+'/'+bounds._ne.lng+'/'+bounds._sw.lat+'/'+bounds._sw.lng)
+			fetch( 'http://localhost:8080/vehicles/'+bounds._ne.lat+'/'+bounds._ne.lng+'/'+bounds._sw.lat+'/'+bounds._sw.lng)
 			.then(res => res.json())
 			.then((data) => {
 				that.setState({
