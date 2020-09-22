@@ -99,7 +99,7 @@ function addMarkers(map,mapboxgl,document,markers,features){
 		if( marker.geometry.markerClass == 'marker-grouped' ){
 			el.style.background = "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='34' height='34'>"+
 			"<circle cx='17' cy='17' r='17'  fill='none' stroke='rgb(255, 140, 0)' stroke-width='3' />"+
-			"<text x='50%' y='50%' color='white' text-anchor='middle' font-size='12' font-family='Arial' dy='.3em' fill='rgb(255, 140, 0)' >"+
+			"<text x='50%' y='50%' color='white' text-anchor='middle' font-size='12' font-family='Arial' font-weight='bold' dy='.3em' fill='rgb(255, 140, 0)' >"+
 			marker.geometry.vehicleCount+
 			"</text>"+
 			
