@@ -66,4 +66,7 @@ npm start
 Application can be reached from http://localhost:3000
 
 
+## Test
+
+No time left for tests
 
